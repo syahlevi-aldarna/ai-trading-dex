@@ -1,0 +1,495 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-primary text-primary;
+  }
+}
+
+@layer components {
+  .market-card {
+    @apply bg-card-bg rounded-lg p-4 shadow-lg transition-transform hover:-translate-y-1;
+  }
+
+  .chart-wrapper {
+    @apply h-48 bg-chart-bg rounded overflow-hidden;
+  }
+}
+
+/* Reset CSS */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--chart-bg);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Theme Colors */
+  --bg-primary: #1a1a2e;
+  --bg-secondary: #16213e;
+  --accent: #0099ff;
+  --text-primary: #e6e6e6;
+  --text-secondary: #8a8a8a;
+
+  /* Chart Colors */
+  --chart-primary: #0099ff;
+  --chart-secondary: #00ff95;
+  --chart-tertiary: #ff4d4d;
+  --chart-grid: #2a2a3a;
+
+  /* Spacing */
+  --spacing-base: 8px;
+  --spacing-lg: 16px;
+  --border-radius: 0.5rem;
+
+  /* Theme variables */
+  --chart-bg: #1a1a2e;
+  --card-bg: #16213e;
+  --text: #e6e6e6;
+  --grid-color: rgba(255, 255, 255, 0.1);
+}
+
+body {
+  @apply bg-gradient-to-b from-[#1a1a2e] to-[#16213e];
+  color: var(--text-primary);
+}
+
+.container {
+  @apply max-w-7xl mx-auto px-4;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-[#151C2F];
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-blue-900/50 rounded-full hover:bg-blue-800/50;
+}
+
+/* Glass Effect */
+.glass-effect {
+  @apply backdrop-blur-xl bg-white/5;
+}
+
+/* Gradient Border */
+.gradient-border {
+  @apply border border-transparent bg-gradient-to-r from-blue-500/20 to-purple-500/20;
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+}
+
+/* Animated Background */
+.animated-bg {
+  background: linear-gradient(-45deg, #1e2839, #151c2f, #0f172a, #1a1f35);
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.shimmer {
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.1) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+/* Premium Glass Effect */
+.glass-premium {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.05) 0%,
+    rgba(255, 255, 255, 0.02) 100%
+  );
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+
+/* Animated Gradient Background */
+.gradient-animated {
+  background: linear-gradient(-45deg, #1e293b, #0f172a, #1e1b4b, #312e81);
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+}
+
+/* Glow Effect */
+.glow {
+  box-shadow: 0 0 15px rgba(59, 130, 246, 0.5);
+  animation: glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+  from {
+    box-shadow: 0 0 15px rgba(59, 130, 246, 0.5);
+  }
+  to {
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.8);
+  }
+}
+
+/* Hover Card Effect */
+.hover-card {
+  transition: all 0.3s ease;
+}
+
+.hover-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Premium Card Effects */
+.card-premium {
+  @apply relative overflow-hidden;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.05) 0%,
+    rgba(255, 255, 255, 0.02) 100%
+  );
+  backdrop-filter: blur(10px);
+}
+
+.card-premium::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 200%;
+  height: 100%;
+  background: linear-gradient(
+    115deg,
+    transparent 0%,
+    transparent 25%,
+    rgba(255, 255, 255, 0.1) 45%,
+    rgba(255, 255, 255, 0.1) 55%,
+    transparent 75%,
+    transparent 100%
+  );
+  animation: shine 3s infinite;
+}
+
+@keyframes shine {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+/* Gradient Text */
+.text-gradient {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-400;
+}
+
+/* Animated Border */
+.border-glow {
+  @apply relative;
+}
+
+.border-glow::after {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  background: linear-gradient(45deg, #3b82f6, #8b5cf6, #3b82f6);
+  border-radius: inherit;
+  z-index: -1;
+  animation: borderGlow 4s linear infinite;
+}
+
+@keyframes borderGlow {
+  0% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.5;
+  }
+}
+
+/* Card Styles */
+.card {
+  @apply bg-[#16213e]/90 backdrop-blur-xl rounded-lg border border-[#2a2a3a]
+         shadow-lg shadow-black/20 transition-all duration-300
+         hover:shadow-xl hover:shadow-[#0099ff]/10 hover:border-[#0099ff]/30;
+}
+
+/* Grid System */
+.grid-8 {
+  @apply p-8 gap-8;
+}
+
+.grid-4 {
+  @apply p-4 gap-4;
+}
+
+/* Button Styles */
+.btn-primary {
+  @apply bg-gradient-to-r from-[#0099ff] to-[#0066ff]
+         text-white px-4 py-2 rounded-lg font-medium
+         transition-all duration-300 hover:scale-105
+         hover:shadow-lg hover:shadow-[#0099ff]/20;
+}
+
+/* Chart Styles */
+.chart-container {
+  @apply bg-[#16213e]/70 rounded-lg p-4;
+  background-image: linear-gradient(#2a2a3a 1px, transparent 1px),
+    linear-gradient(90deg, #2a2a3a 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+/* Animations */
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.animate-pulse-slow {
+  animation: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Base styles */
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+/* Card/Container styles */
+.card {
+  background-color: var(--bg-secondary);
+  border-radius: var(--border-radius);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Interactive elements */
+.button {
+  background-color: var(--accent);
+  padding: var(--spacing-base) var(--spacing-lg);
+  border-radius: var(--border-radius);
+  transition: all 0.2s ease;
+}
+
+.button:hover {
+  filter: brightness(1.1);
+  transform: translateY(-1px);
+}
+
+/* Chart styles */
+.chart-container {
+  position: relative;
+}
+
+.chart-tooltip {
+  position: absolute;
+  background: var(--bg-secondary);
+  padding: var(--spacing-base);
+  border-radius: var(--border-radius);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.chart-container:hover .chart-tooltip {
+  opacity: 1;
+}
+
+/* Modern reset and base styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Container styles */
+.chart-container {
+  background-color: var(--chart-bg);
+  border-radius: 0.5rem;
+  padding: 1rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+  /* Modern alternative to -ms-high-contrast-adjust */
+  @media (forced-colors: active) {
+    forced-color-adjust: none;
+  }
+}
+
+/* Chart controls */
+.chart-controls {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.chart-button {
+  background: var(--accent);
+  color: var(--text);
+  border: none;
+  border-radius: 0.25rem;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.chart-button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.timeframe-select {
+  background: var(--card-bg);
+  color: var(--text);
+  border: 1px solid var(--accent);
+  border-radius: 0.25rem;
+  padding: 0.5rem;
+}
+
+/* Chart grid */
+.chart-grid {
+  stroke: var(--grid-color);
+  stroke-width: 1px;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .chart-container {
+    padding: 0.5rem;
+  }
+
+  .chart-controls {
+    flex-direction: column;
+  }
+}
+
+/* Market Overview styles */
+.market-overview-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1rem;
+  padding: 1rem;
+  background-color: var(--chart-bg);
+}
+
+.market-card {
+  background-color: var(--card-bg);
+  border-radius: 0.5rem;
+  padding: 1rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease;
+}
+
+.market-card:hover {
+  transform: translateY(-2px);
+}
+
+.market-title {
+  color: var(--text);
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.chart-wrapper {
+  height: 200px;
+  background-color: var(--chart-bg);
+  border-radius: 0.25rem;
+  overflow: hidden;
+}
+
+/* Chart colors */
+.chart-up {
+  color: #00ff95;
+}
+
+.chart-down {
+  color: #ff4d4d;
+}
+
+/* Navigation styles */
+.nav-item {
+  padding: 0.75rem 1rem;
+  color: var(--text-secondary);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.nav-item:hover,
+.nav-item.active {
+  color: var(--text);
+  background-color: var(--card-bg);
+  border-radius: 0.25rem;
+}
+
+/* Layout structure */
+.main-layout {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  min-height: 100vh;
+}
+
+.sidebar {
+  background-color: var(--chart-bg);
+  padding: 1rem;
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.main-content {
+  background-color: var(--chart-bg);
+  padding: 1rem;
+}
