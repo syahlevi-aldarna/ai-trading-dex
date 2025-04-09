@@ -7,10 +7,10 @@ import "@openzeppelin/contracts/security/ReentrancyGuard.sol";
 contract AITraderRegistry is Ownable, ReentrancyGuard {
     struct Strategy {
         address creator;
-        string ipfsHash;     // Hash dari metadata strategi
-        uint256 price;       // Harga dalam token native
-        uint256 rating;      // Rating rata-rata (1-100)
-        uint256 totalRaters; // Jumlah pemberi rating
+        string ipfsHash;     // Hash of strategy metadata
+        uint256 price;       // Price in native token
+        uint256 rating;      // Average rating (1-100)
+        uint256 totalRaters; // Number of raters
     }
     
     mapping(uint256 => Strategy) public strategies;
@@ -36,7 +36,7 @@ contract AITraderRegistry is Ownable, ReentrancyGuard {
         Strategy storage strategy = strategies[_strategyId];
         require(msg.value >= strategy.price, "Insufficient payment");
         
-        // Transfer pembayaran ke creator
+        // Transfer payment to creator
         payable(strategy.creator).transfer(msg.value);
         
         emit StrategyPurchased(_strategyId, msg.sender);

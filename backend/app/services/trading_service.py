@@ -62,10 +62,10 @@ class TradingService:
 
     async def create_strategy(self, strategy: dict):
         try:
-            # Insert strategy ke collection strategies
+            # Insert strategy into strategies collection
             result = await self.db.strategies.insert_one(strategy)
             
-            # Convert ObjectId ke string
+            # Convert ObjectId to string
             strategy_id = str(result.inserted_id)
             
             return {
@@ -77,7 +77,7 @@ class TradingService:
 
     async def get_strategy(self, strategy_id: str):
         try:
-            # Ubah cara mengambil single document
+            # Get single document
             strategy = await self.db.strategies.find_one({"_id": ObjectId(strategy_id)})
             if not strategy:
                 raise HTTPException(status_code=404, detail="Strategy not found")
@@ -93,12 +93,12 @@ class TradingService:
             raise HTTPException(status_code=500, detail=str(e))
 
     async def list_strategies(self) -> List[Dict]:
-        """Ambil semua strategies"""
+        """Get all strategies"""
         return self.db.get_all_strategies()
 
     async def test_db_connection(self):
         try:
-            # Test read dari collection strategies
+            # Test reading from strategies collection
             count = await self.db.strategies.count_documents({})
             return {
                 "connected": True,

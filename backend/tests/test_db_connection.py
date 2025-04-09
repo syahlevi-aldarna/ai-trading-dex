@@ -1,7 +1,7 @@
 import pytest
 from motor.motor_asyncio import AsyncIOMotorClient
 
-# MongoDB URL langsung di file test
+# MongoDB URL directly in the test file
 MONGODB_URL = "mongodb://localhost:27017"
 
 async def test_mongodb_connection():

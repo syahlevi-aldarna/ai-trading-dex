@@ -14,7 +14,7 @@ load_dotenv()
 
 app = FastAPI(title="AI Trading Platform API")
 
-# Konfigurasi CORS
+# CORS Configuration
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[
@@ -30,11 +30,11 @@ app.add_middleware(
 mongo_client = AsyncIOMotorClient("mongodb://localhost:27017")
 db = mongo_client.trading
 
-# Initialize Web3 dengan Alchemy URL
+# Initialize Web3 with Alchemy URL
 WEB3_PROVIDER_URL = os.getenv("WEB3_PROVIDER_URL", "https://eth-sepolia.g.alchemy.com/v2/your-key")
 web3 = Web3(Web3.HTTPProvider(WEB3_PROVIDER_URL))
 
-# Gunakan db untuk trading_service
+# Use db for trading_service
 trading_service = TradingService(db, web3)
 
 @app.post("/api/strategies/")
