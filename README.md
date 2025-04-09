@@ -41,7 +41,7 @@ The platform is built with a microservices architecture:
 1. Clone the repository:
 
    ```
-   git clone https://github.com/yourusername/ai-trading-dex.git
+   git clone https://github.com/syahlevi-aldarna/ai-trading-dex.git
    cd ai-trading-dex
    ```
 
