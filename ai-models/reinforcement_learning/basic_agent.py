@@ -14,12 +14,12 @@ class BasicTradingAgent:
     def act(self, state: np.ndarray) -> int:
         if np.random.rand() <= self.epsilon:
             return np.random.randint(self.action_size)
-        # TODO: Implementasi model prediksi
+        # TODO: Implement prediction model
         return 0
     
     def train(self, state: np.ndarray, action: int, reward: float, next_state: np.ndarray):
         self.memory.append((state, action, reward, next_state))
-        # TODO: Implementasi training loop
+        # TODO: Implement training loop
         
         if self.epsilon > self.epsilon_min:
             self.epsilon *= self.epsilon_decay 

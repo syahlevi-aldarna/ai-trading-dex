@@ -7,16 +7,16 @@ class MongoDBManager:
         self.db = self.client.trading
 
     def add_strategy(self, strategy_data: Dict) -> str:
-        """Menambahkan strategy baru"""
+        """Add new strategy"""
         result = self.db.strategies.insert_one(strategy_data)
         return str(result.inserted_id)
 
     def get_strategy(self, strategy_id: str) -> Optional[Dict]:
-        """Mengambil strategy berdasarkan ID"""
+        """Get strategy by ID"""
         return self.db.strategies.find_one({"_id": strategy_id})
 
     def get_all_strategies(self) -> List[Dict]:
-        """Mengambil semua strategies"""
+        """Get all strategies"""
         return list(self.db.strategies.find())
 
     def update_strategy(self, strategy_id: str, update_data: Dict) -> bool:
@@ -28,6 +28,6 @@ class MongoDBManager:
         return result.modified_count > 0
 
     def delete_strategy(self, strategy_id: str) -> bool:
-        """Hapus strategy"""
+        """Delete strategy"""
         result = self.db.strategies.delete_one({"_id": strategy_id})
         return result.deleted_count > 0 
